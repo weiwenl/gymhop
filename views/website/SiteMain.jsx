@@ -18,10 +18,10 @@ class SiteMain extends React.Component {
             </form>
             <h2>Nearby Venues</h2>
             <h2>Upcoming Events</h2>
-            <h2>Gym Passes Record</h2>
+            <h2><a href="/user">Record/Check your Gym Passes</a></h2>
             <footer>
-                {/* <h3>Designed by climbers, made for climbers</h3>
-                <h3>Terms etc ...</h3> */}
+                <h3>Designed by climbers, made for climbers</h3>
+                <h5>Privacy Policy</h5><h5>Terms of use</h5>
             </footer>
           </div>
        </DefaultLayout>

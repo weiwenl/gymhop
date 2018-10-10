@@ -5,7 +5,7 @@ class UserNew extends React.Component {
   render() {
     let userTaken;
     if(this.props.cookie === 'true') {
-        userTaken = <h3>Name already exists.</h3>
+        userTaken = <h3 className="create-error">Name already exists.</h3>
     }
     return (
       <DefaultLayout title="Creating an Account">

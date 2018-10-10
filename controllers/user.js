@@ -1,5 +1,4 @@
 const sha256 = require('sha256');
-const alert = require('alert-node');
 const SALT = "Bananas";
 
 module.exports = (db) => {
@@ -17,10 +16,6 @@ module.exports = (db) => {
   };
 
   const newUser = (req, res) => {
-     //if(req.cookie.feedback !== undefined){
-       //var feedback = req.cookies.feedback;
-       //res.render('user/UserNew', feedback)
-     //}
      res.render('user/UserNew', {cookie: req.cookies['userTaken']});
   };
 
@@ -33,24 +28,22 @@ module.exports = (db) => {
           res.sendStatus(500);
         }
 
-        console.log('Create query: ', queryResult);
+        //console.log('Create query: ', queryResult);
         if (queryResult === undefined) {
             res.clearCookie('userTaken');
-            //res.clearCookie('feedback');
-            console.log('User created successfully.');
+            //console.log('User created successfully.');
             res.redirect('/user');
         } else {
             res.cookie('userTaken', true);
-            //res.cookie('feedback', 'User already exists.')
+            //console.log('User name exists.');
             res.redirect('/user/new');
         }
       });
   };
 
   const loginUser = (req, res) => {
-    res.send("now login");
+     res.render('user/UserLogin', {cookie: req.cookies['wrongLogin']});
   };
-
 
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
