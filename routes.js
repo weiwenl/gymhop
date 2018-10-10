@@ -13,6 +13,9 @@ app.get('/user/new', user.newUser);
 app.post('/user', user.createUser);
 app.get('/login', user.loginUser);
 app.post('/login', account.checkUser);
-//app.get('/account/:id', account.userAccount)
+app.get('/logout', account.logOut);
+//app.get('/', account.homepage);
+//app.get('/user/reset', user.resetUser);
+app.get('/account/:id', account.userAccount)
 //app.post('/user', user.loginUser)
 };

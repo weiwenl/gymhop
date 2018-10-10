@@ -5,6 +5,7 @@ class UserAccount extends React.Component {
       <DefaultLayout title="Welcome">
           <div className="UserAccount-page">
             <a href="#">Edit Profile</a>
+            <a href="/logout">Logout</a>
             <div>
               <h3>Total Passes</h3>
               <h3>Total Gym</h3>
