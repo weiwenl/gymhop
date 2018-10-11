@@ -7,7 +7,7 @@ class UserLogin extends React.Component {
     let resetPassword
     if(this.props.cookie === 'true') {
         wrongLogin = <h3 className="create-error">Incorrect Name/Password Combination</h3>
-        resetPassword = <a className="create-error" href="#">Reset my Password</a>
+        resetPassword = <a className="create-error" href="/user/reset">Reset my Password</a>
     }
     return (
       <DefaultLayout title="Sign In">

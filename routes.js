@@ -18,7 +18,6 @@ app.get('/login', user.loginUser);
 app.post('/login', account.checkUser);
 ////////
 app.get('/logout', account.logOut);
-//app.get('/user/reset', user.resetUser);
-
-//app.get('/account/:id', account.userProfile);
+app.get('/user/reset', user.resetPassword);
+app.post('/user/reset', user.newPassword)
 };

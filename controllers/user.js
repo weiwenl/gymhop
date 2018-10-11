@@ -45,12 +45,34 @@ module.exports = (db) => {
      res.render('./user/UserLogin', {cookie: req.cookies['wrongLogin']});
   };
 
+  const resetPassword = (req, res) => {
+    res.render('./user/UserReset', {cookie: req.cookies['name']});
+  };
+  
+  const newPassword = (req, res) => {
+    let name = req.cookies['name'];
+
+    console.log('U WANT TO PASS THIS?', name);
+    db.user.newPassword(req.body, name, (error, queryResult) => {
+        if (error) {
+          console.error('ERROR CHANGING OLD PASSWORD: ', error);
+          res.sendStatus(500);
+        }
+
+        res.clearCookie('wrongLogin');
+        res.clearCookie('name');
+        res.redirect('/login');
+    });
+  };
+
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   //                      Export controller functions
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   return {
+    newPassword,
+    resetPassword,
     loginUser,
     createUser,
     newUser,

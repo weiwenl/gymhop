@@ -7,19 +7,6 @@ module.exports = (db) => {
   //                             Controller logic
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
-  // const userProfile = (req, res) => {
-  //
-  //   db.account.userProfile(req.params.id, (error, queryResult) => {
-  //
-  //       if (error) {
-  //           console.log("ERROR QUERYING DB: ". error.message);
-  //           response.sendStatus(500);
-  //       }
-  //       console.log('queryResultttttt: ', queryResult);
-  //       res.render('/account/UserAccount', {user: queryResult});
-  //   });
-  // };
-
   const logOut = (req, res) => {
         res.clearCookie('loginStatus');
         res.clearCookie('userId');
@@ -42,12 +29,11 @@ module.exports = (db) => {
                 res.cookie('userId', queryResult.id);
                 console.log('queryResultttttt: ', queryResult);
                 res.render('./account/UserAccount', {user: queryResult.name});
-                //let url = '/account/' + queryResult.id;
-                //res.redirect(url);
             }
 
             else {
                 res.cookie('wrongLogin', true);
+                res.cookie('name', queryResult.name);
                 //res.send('Failed');
                 res.redirect('/login');
             }
@@ -56,7 +42,6 @@ module.exports = (db) => {
   };
 
   return {
-    // userProfile,
     logOut,
     checkUser
   };
