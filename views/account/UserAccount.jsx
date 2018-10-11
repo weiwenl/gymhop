@@ -1,9 +1,13 @@
+var React = require("react");
+var DefaultLayout = require('../layout/Default');
+
 class UserAccount extends React.Component {
   render() {
     return (
       //Welcome user's name
       <DefaultLayout title="Welcome">
           <div className="UserAccount-page">
+            <h2>Hello, { this.props.user }!</h2>
             <a href="#">Edit Profile</a>
             <a href="/logout">Logout</a>
             <div>

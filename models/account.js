@@ -1,12 +1,25 @@
-const sha256 = require('sha256');
-const SALT = "Bananas";
-
 module.exports = (dbPool) => {
 /////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //                             Models (Access database) logic
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
+const userProfile = (id, callback) => {
+
+    const queryString = "SELECT * FROM users WHERE id='" + id + "';";
+
+    dbPool.query(queryString, (error, result) => {
+
+        if (error) {
+            console.log("query error message: ", error);
+        }
+
+        var endResult = result.rows[0];
+        console.log('endResult: ',endResult);
+
+    });
+};
+
 const checkUser = (input, callback) => {
       const queryText = "SELECT * FROM users WHERE name='" + input.name + "';";
 
@@ -29,6 +42,7 @@ const checkUser = (input, callback) => {
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   return {
+      userProfile,
       checkUser
     };
   };

@@ -42,7 +42,7 @@ module.exports = (db) => {
   };
 
   const loginUser = (req, res) => {
-     res.render('user/UserLogin', {cookie: req.cookies['wrongLogin']});
+     res.render('./user/UserLogin', {cookie: req.cookies['wrongLogin']});
   };
 
   //////////////////////////////////////////////////////////////////////////////

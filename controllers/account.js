@@ -7,6 +7,26 @@ module.exports = (db) => {
   //                             Controller logic
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
+  // const userProfile = (req, res) => {
+  //
+  //   db.account.userProfile(req.params.id, (error, queryResult) => {
+  //
+  //       if (error) {
+  //           console.log("ERROR QUERYING DB: ". error.message);
+  //           response.sendStatus(500);
+  //       }
+  //       console.log('queryResultttttt: ', queryResult);
+  //       res.render('/account/UserAccount', {user: queryResult});
+  //   });
+  // };
+
+  const logOut = (req, res) => {
+        res.clearCookie('loginStatus');
+        res.clearCookie('userId');
+        res.clearCookie('name');
+        res.redirect('/');
+  };
+
   const checkUser = (req, res) => {
         db.account.checkUser(req.body, (error, queryResult) => {
         if (error) {
@@ -20,8 +40,10 @@ module.exports = (db) => {
                 res.clearCookie('wrongLogin');
                 res.cookie('name', queryResult.name);
                 res.cookie('userId', queryResult.id);
-                let url = '/account' + res.cookie.userId;
-                res.redirect(url);
+                console.log('queryResultttttt: ', queryResult);
+                res.render('./account/UserAccount', {user: queryResult.name});
+                //let url = '/account/' + queryResult.id;
+                //res.redirect(url);
             }
 
             else {
@@ -33,39 +55,9 @@ module.exports = (db) => {
         });
   };
 
-  const userAccount = (req, res) => {
-
-  //   db.user.showProfile(request.params.id, request.cookies['userId'], (error, queryResult) => {
-  //
-  //       if (error) {
-  //           console.log("error showing profile: ". error.message);
-  //           response.sendStatus(500);
-  //       }
-  //
-  //       let cookies = {
-  //
-  //           check: sha256(SALT + "logged in"),
-  //           loginStatus: request.cookies['loginStatus'],
-  //           username: request.cookies['username'],
-  //           userId: request.cookies['userId']
-  //       };
-  //
-  //       response.render('user/profile', {user: queryResult, cookie: cookies});
-  //   });
-  // };
-  //      res.render('/account/UserAccount');
-    };
-
-  const logOut = (req, res) => {
-        res.clearCookie('loginStatus');
-        res.clearCookie('userId');
-        res.clearCookie('name');
-        res.redirect('/');
-  };
-
   return {
+    // userProfile,
     logOut,
-    userAccount,
     checkUser
   };
 };
