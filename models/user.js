@@ -8,29 +8,19 @@ module.exports = (dbPool) => {
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
   const newPassword = (password, name, callback) => {
-    console.log("U are updating this name: ", name);
-    console.log("new password: ", password.newpassword);
     let newHashPassword = sha256(SALT + password.newpassword);
-    console.log(newHashPassword);
-    //
     const queryText = "UPDATE users SET password='" + newHashPassword + "' WHERE name='" + name + "';";
-    console.log("U QUERY THIS: ", queryText);
-    //const newPasswordValue = newHashPassword;
 
         dbPool.query(queryText, (error, queryResult) => {
-          // if (error) {
-          //     console.log('ERROR CHANGING USER OLD PW: ', error);
-          // }
           callback(error);
         });
   }
 
   const createUser = (user, callback) => {
-
         const queryText = "SELECT * FROM users WHERE name='" + user.name + "';";
-
+console.log("BEEF",queryText);
         dbPool.query(queryText, (error, queryResult) => {
-
+          console.log("AFT:",queryText);
             if (error) {
                 console.log('ERROR QUERYING DB: ', error);
             }

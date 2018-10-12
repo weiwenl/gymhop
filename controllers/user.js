@@ -28,14 +28,13 @@ module.exports = (db) => {
           res.sendStatus(500);
         }
 
-        //console.log('Create query: ', queryResult);
         if (queryResult === undefined) {
             res.clearCookie('userTaken');
-            //console.log('User created successfully.');
+
             res.redirect('/user');
         } else {
             res.cookie('userTaken', true);
-            //console.log('User name exists.');
+
             res.redirect('/user/new');
         }
       });
@@ -48,11 +47,10 @@ module.exports = (db) => {
   const resetPassword = (req, res) => {
     res.render('./user/UserReset', {cookie: req.cookies['name']});
   };
-  
+
   const newPassword = (req, res) => {
     let name = req.cookies['name'];
 
-    console.log('U WANT TO PASS THIS?', name);
     db.user.newPassword(req.body, name, (error, queryResult) => {
         if (error) {
           console.error('ERROR CHANGING OLD PASSWORD: ', error);
