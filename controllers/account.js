@@ -7,6 +7,27 @@ module.exports = (db) => {
   //                             Controller logic
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
+
+  const newPassword = (req, res) => {
+    let name = req.cookies['name'];
+    console.log(name);
+    db.user.newPassword(req.body, name, (error, queryResult) => {
+        if (error) {
+          console.error('ERROR CHANGING OLD PASSWORD: ', error);
+          res.sendStatus(500);
+        }
+
+        res.clearCookie('wrongLogin');
+        res.clearCookie('name');
+        res.redirect('/account/login');
+    });
+  };
+
+  const resetPassword = (req, res) => {
+    res.clearCookie('wrongLogin');
+    res.render('./web/AccountReset', {cookie: req.cookies['name']});
+  };
+
   const logOut = (req, res) => {
         res.clearCookie('loginStatus');
         res.clearCookie('userId');
@@ -20,46 +41,58 @@ module.exports = (db) => {
             console.log('ERROR AUTHENTICATING USER: ', error);
             res.sendStatus(500);
         } else {
+          res.cookie('name', req.body.name);
             //If no error do these: queryResult exists and password is correct
             if (queryResult !== undefined && sha256(SALT + req.body.password) === queryResult.password) {
                 res.cookie('loginStatus', sha256(SALT + 'logged in'));
                 res.clearCookie('wrongLogin');
                 res.cookie('name', queryResult.name);
                 res.cookie('userId', queryResult.id);
-                res.render('./account/UserAccount', {user: queryResult.name});
+                //res.redirect('./account/user', {user: queryResult.name});
+                res.render('./user/UserAccount', {user: queryResult.name});
             }
 
             else {
                 res.cookie('wrongLogin', true);
-                res.cookie('name', queryResult.name);
-                res.redirect('/login/user');
+                //res.render('./web/AccountLogin');
+                res.redirect('/account/login');
+
             }
           };
         });
   };
 
-  const getData = (req, res) => {
-    res.render('./account/AddForm');
+  const createUser = (req,res) => {
+    // use user model method `create` to create new user entry in db
+      db.user.createUser(req.body, (error, queryResult) => {
+
+        if (error) {
+          console.error('ERROR CREATING USER: ', error);
+          res.sendStatus(500);
+        }
+
+        if (queryResult === undefined) {
+            res.clearCookie('userTaken');
+
+            res.redirect('/account/login');
+        } else {
+            res.cookie('userTaken', true);
+
+            res.redirect('/account/new');
+        }
+      });
   };
 
-  const addData = (req, res) => {
-    let id = req.cookies['userId'];
-
-    db.account.addData(req.body, id, (error, queryResult) => {
-      console.log("THIS IS THE DATA U ADDING: ",req.body);
-      if(error){
-        console.log('ERROR ADDING PASSES DATA: ', error);
-        res.sendStatus(500);
-      }
-      console.log("SUCCESS");
-    });
-    res.render('./account/UserAccount', {user: queryResult.name});
+  const loginUser = (req, res) => {
+     res.render('./web/AccountLogin', {cookie: req.cookies['wrongLogin']});
   };
 
   return {
-    addData,
-    getData,
+    newPassword,
+    resetPassword,
     logOut,
-    checkUser
+    checkUser,
+    createUser,
+    loginUser
   };
 };

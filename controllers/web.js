@@ -1,40 +1,17 @@
-const sha256 = require('sha256');
-const SALT = "Bananas";
-
 module.exports = (db) => {
   /////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   //                             Controller logic
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
-  // const userHome = (req, res) => {
-  //   res.render('./user/UserAccount');
-  //   // res.render('./user/UserAccount', {user: queryResult.name});
-  // }
-  const getData = (req, res) => {
-    res.render('./user/UserAddData');
+
+  const mainpage = (req, res) => {
+     res.render('./web/mainSite');
   };
 
-  const addData = (req, res) => {
-    let id = req.cookies['userId'];
-
-    db.account.addData(req.body, id, (error, queryResult) => {
-      if(error){
-        console.log('ERROR ADDING PASSES DATA: ', error);
-        res.sendStatus(500);
-      }
-      //console.log("SUCCESS");
-    });
-    res.redirect('/account/user');
-    //res.render('./user/UserAccount', {user: req.body.name});
+  const accountNew = (req, res) => {
+     res.render('./web/AccountCreate', {cookie: req.cookies['userTaken']});
   };
-
-  const userHome = (req, res) => {
-
-
-
-    res.render('./user/UserAccount');
-}
 
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
@@ -42,8 +19,7 @@ module.exports = (db) => {
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   return {
-    userHome,
-    getData,
-    addData
+    accountNew,
+    mainpage
   };
 };

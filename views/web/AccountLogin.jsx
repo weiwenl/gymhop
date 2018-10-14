@@ -1,25 +1,28 @@
 var React = require("react");
 var DefaultLayout = require('../layout/Default');
 
-class UserNew extends React.Component {
+class UserLogin extends React.Component {
   render() {
-    let userTaken;
+    let wrongLogin;
+    let resetPassword
     if(this.props.cookie === 'true') {
-        userTaken = <h3 className="create-error">Name already exists.</h3>
+        wrongLogin = <h3 className="create-error">Incorrect Name/Password Combination</h3>
+        resetPassword = <a className="create-error" href="/account/reset/new">I forgot my Password</a>
     }
     return (
-      <DefaultLayout title="Creating an Account">
-          <div className="UserNew-page">
-              <form method="POST" action="/user">
-              <h1>Make new Account</h1>
+      <DefaultLayout title="Sign In">
+          <div className="UserLogin-page">
+              <form method="POST" action="/account/login">
+              <h1>Sign In</h1>
               <div>
-                {userTaken}
+                {wrongLogin}
                 <h3>Name</h3> <input name="name" type="text" />
               </div>
               <div>
                 <h3>Password</h3> <input name="password" type="text" />
               </div>
-              <input type="submit" value="Sign Up" />
+              <input type="submit" value="Log In" />
+              {resetPassword}
             </form>
           <footer>
               {/* <h3>Designed by climbers, made for climbers</h3>
@@ -31,4 +34,4 @@ class UserNew extends React.Component {
   }
 }
 
-module.exports = UserNew;
+module.exports = UserLogin;

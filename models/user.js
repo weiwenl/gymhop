@@ -7,20 +7,20 @@ module.exports = (dbPool) => {
 //                             Models (Access database) logic
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
+
+
   const newPassword = (password, name, callback) => {
     let newHashPassword = sha256(SALT + password.newpassword);
     const queryText = "UPDATE users SET password='" + newHashPassword + "' WHERE name='" + name + "';";
 
         dbPool.query(queryText, (error, queryResult) => {
-          callback(error);
+          callback(error, queryResult);
         });
   }
 
   const createUser = (user, callback) => {
         const queryText = "SELECT * FROM users WHERE name='" + user.name + "';";
-console.log("BEEF",queryText);
         dbPool.query(queryText, (error, queryResult) => {
-          console.log("AFT:",queryText);
             if (error) {
                 console.log('ERROR QUERYING DB: ', error);
             }
@@ -33,7 +33,7 @@ console.log("BEEF",queryText);
 
               // set up query
               dbPool.query(queryText, values, (error, queryResult) => {
-                callback(error);
+                callback(error, queryResult);
               });
             };
         });
@@ -45,6 +45,7 @@ console.log("BEEF",queryText);
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   return {
+      
       newPassword,
       createUser
     };
