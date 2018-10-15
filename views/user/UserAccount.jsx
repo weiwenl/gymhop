@@ -3,19 +3,10 @@ var DefaultLayout = require('../layout/Default');
 
 class UserAccount extends React.Component {
   render() {
-    
+
     let userInfo = this.props.obj.data.map((info) => {
              return (
-
-               <table>
-               <tr>
-                 <th>Gym</th>
-                 <th>Quantity</th>
-                 <th>Expiry Date</th>
-               </tr>
-               <tr>
-
-                 <tr>
+                <tr>
                    <td key={info.gym_name}>
                      {info.gym_name}
                    </td>
@@ -25,11 +16,7 @@ class UserAccount extends React.Component {
                    <td key={info.expiry_date}>
                      {info.expiry_date.toDateString()}
                    </td>
-                 </tr>
-
-               </tr>
-             </table>
-
+                </tr>
              )
       });
 
@@ -46,7 +33,17 @@ class UserAccount extends React.Component {
             <img src="#" alt="Display Picture"></img>
             <h3>{ this.props.obj.user }</h3>
 
+            <table>
+                <tr>
+                  <th>Gym</th>
+                  <th>Quantity</th>
+                  <th>Expiry Date</th>
+                </tr>
+
                   {userInfo}
+        
+            </table>
+
             <div>
                 <a href="/user/add">Add Passes</a>
                 <a href="/user/checkin">Check into gym</a>

@@ -18,3 +18,12 @@ form {
 
   background-color:;
 } */
+
+th{
+  width: 20vw;
+  border: solid 2px #000;
+  padding: 2vh;
+}
+tr{
+  text-align: center;
+}

@@ -47,10 +47,14 @@ const checkUser = (input, callback) => {
 
   const newPassword = (password, name, callback) => {
       let newHashPassword = sha256(SALT + password.newpassword);
-      const queryText = "UPDATE users SET password='" + newHashPassword + "' WHERE name='" + name + "';";
+      const queryText = "UPDATE users SET password = $1 WHERE name = $2;"
+      const values = [newHashPassword, name];
 
-          dbPool.query(queryText, (error, queryResult) => {
-            callback(error, queryResult);
+          dbPool.query(queryText, values, (error, queryResult) => {
+            if(error){
+              console.error("ERROR RESETING PASSWORD: ", error);
+            }
+            callback(null, queryResult);
           });
   }
 

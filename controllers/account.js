@@ -9,6 +9,7 @@ module.exports = (db) => {
   //////////////////////////////////////////////////////////////////////////////
 
   const newPassword = (req, res) => {
+    // res.cookie('wrongLogin', false);
     let name = req.cookies['name'];
     console.log(name);
     db.account.newPassword(req.body, name, (error, queryResult) => {
@@ -16,15 +17,15 @@ module.exports = (db) => {
           console.error('ERROR CHANGING OLD PASSWORD: ', error);
           res.sendStatus(500);
         }
-        res.clearCookie('wrongLogin');
+        console.log(queryResult.rows);
         //res.cookies('name');
-        res.clearCookie('name', name);
-        res.redirect('/account/login');
+        //res.clearCookie('name');
+        res.redirect('/account/login', {cookie: req.cookies['wrongLogin']});
     });
   };
 
   const resetPassword = (req, res) => {
-    res.clearCookie('wrongLogin');
+    res.cookie('wrongLogin', false);
     res.render('./web/AccountReset', {cookie: req.cookies['name']});
   };
 
@@ -53,6 +54,7 @@ module.exports = (db) => {
 
             else {
                 res.cookie('wrongLogin', true);
+                res.cookie('name', req.body.name);
                 res.redirect('/account/login');
             }
           };

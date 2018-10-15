@@ -28,15 +28,24 @@ module.exports = (db) => {
   const userHome = (req, res) => {
     db.user.userHome(req.cookies.userId, (error, queryResult) => {
         if (error) {
-            console.log('ERROR AUTHENTICATING USER: ', error);
+            console.log('ERROR GETTING DATA FROM USER: ', error);
             res.sendStatus(500);
         } else {
+          db.user.deletePass(req.cookies.userId, (error, queryResult2) => {
+            if (error) {
+              console.log('ERROR DELETING PASS: ', error);
+              res.sendStatus(500);
+            } else {
+              let userInfo = {
+                      user: req.cookies['name'],
+                      data: queryResult
+              }
+              res.render('./user/UserAccount', {obj: userInfo});
+            }
 
-          let userInfo = {
-                  user: req.cookies['name'],
-                  data: queryResult
-          }
-          res.render('./user/UserAccount', {obj: userInfo});
+          });
+
+
         }
 
 
