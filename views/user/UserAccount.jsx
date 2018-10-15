@@ -3,8 +3,6 @@ var DefaultLayout = require('../layout/Default');
 
 class UserAccount extends React.Component {
   render() {
-  //  console.log("this?",this.props.obj.user);
-   console.log("these?", this.props.obj.data);
    // if (this.props.obj.data.length !== 0) {
         var info = this.props.obj.data.map((info) => {
               return (

@@ -67,12 +67,28 @@ const checkUser = (input, id, callback) => {
           });
   }
 
+  const showUserData = (id, callback) => {
+    console.log("show_id: ", id);
+    const queryText = "SELECT * FROM entrypasses WHERE user_id = $1";
+    const values = [id];
+    console.log("showqueryText", queryText);
+    dbPool.query(queryText, values, (error, queryResult) => {
+        if (error) {
+            console.log('ERROR QUERYING DB: ', error);
+        }
+        else{
+          callback(null, queryResult.rows);
+        }
+  });
+}
+
   /////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   //                       Export Model functions
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   return {
+      showUserData,
       createUser,
       newPassword,
       checkUser
