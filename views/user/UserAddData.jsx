@@ -9,11 +9,11 @@ class UserAddData extends React.Component {
             <form method="POST" action="/user">
             <h3>Gym Name</h3>
                 <select name="gym">
-                    <option value="BM">Boulder Movement</option>
-                    <option value="BW">Boulder World</option>
-                    <option value="BP">Boulder +</option>
-                    <option value="BT">Boys Town Climbing Wall</option>
-                    <option value="CC">Climb Central</option>
+                    <option value="Boulder Movement">Boulder Movement</option>
+                    <option value="Boulder World">Boulder World</option>
+                    <option value="Boulder +">Boulder +</option>
+                    <option value="Boys Town Climbing">Boys Town Climbing Wall</option>
+                    <option value="Climb Central">Climb Central</option>
                     <option value="CL">Climbers Laboratory</option>
                     <option value="FB">Fit · Bloc</option>
                     <option value="GU">GroundUp Climbing</option>

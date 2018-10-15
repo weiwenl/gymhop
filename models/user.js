@@ -17,6 +17,20 @@ module.exports = (dbPool) => {
     });
   }
 
+  const userHome = (id, callback) => {
+      const queryText = "SELECT * FROM entrypasses WHERE user_id = $1;"
+      const values = [id];
+
+      dbPool.query(queryText, values, (error, queryResult) => {
+        if (error){
+            console.error("ERROR GETTING USER DATA", error);
+        } else{
+            callback(null, queryResult.rows);
+        }
+
+      });
+  }
+
   // const removeData = (input, id, gym, callback) => {
   //   const queryText =
   // }
@@ -29,6 +43,7 @@ module.exports = (dbPool) => {
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   return {
-    addData
+    addData,
+    userHome
     };
 };

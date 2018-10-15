@@ -26,33 +26,34 @@ module.exports = (db) => {
   };
 
   const userHome = (req, res) => {
-    res.render('./user/UserAccount', {user: req.cookies['name']});
-  }
+    db.user.userHome(req.cookies.userId, (error, queryResult) => {
+        if (error) {
+            console.log('ERROR AUTHENTICATING USER: ', error);
+            res.sendStatus(500);
+        } else {
+
+          let userInfo = {
+                  user: req.cookies['name'],
+                  data: queryResult
+          }
+          res.render('./user/UserAccount', {obj: userInfo});
+        }
+
+
+  });
+}
 
   const userCheckIn = (req, res) => {
     res.render('/user/userCheckIn');
   }
 
-  // const showData = (req, res) => {
-  //   let id = req.cookies.userId;
-  //   db.user.showData(id, (error, queryResult) => {
-  //     console.log("THIS", queryResult);
-  //     if(error){
-  //       console.log('ERROR ADDING PASSES DATA: ', error);
-  //       res.sendStatus(500);
-  //     }
-  //     else{
-  //       res.render('user/UserAccount', {info: queryResult});
-  //     }
-  //   });
-  // }
+
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   //                      Export controller functions
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   return {
-    //showData,
     userHome,
     getData,
     addData

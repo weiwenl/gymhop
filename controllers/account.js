@@ -36,35 +36,24 @@ module.exports = (db) => {
   };
 
   const checkUser = (req, res) => {
-
-        db.account.checkUser(req.body, req.cookies.userId, (error, queryResult, queryResultData) => {
+        db.account.checkUser(req.body, (error, queryResult) => {
         if (error) {
             console.log('ERROR AUTHENTICATING USER: ', error);
             res.sendStatus(500);
         } else {
-          res.cookie('name', req.body.name);
+          //res.cookie('name', req.body.name);
             //If no error do these: queryResult exists and password is correct
             if (queryResult !== undefined && sha256(SALT + req.body.password) === queryResult.password) {
                 res.cookie('loginStatus', sha256(SALT + 'logged in'));
                 res.clearCookie('wrongLogin');
                 res.cookie('name', queryResult.name);
                 res.cookie('userId', queryResult.id);
-
-                let userInfo = {
-                  user: queryResult.name,
-                  data: queryResultData
-                }
-
-                //res.render('./user/UserAccount');
-                res.render('./user/UserAccount', {obj: userInfo});
-                //console.log("queryResult: ", queryResultData[0].gym_name);
+                res.redirect('/account/user');
             }
 
             else {
                 res.cookie('wrongLogin', true);
-                //res.render('./web/AccountLogin');
                 res.redirect('/account/login');
-
             }
           };
         });
@@ -90,24 +79,6 @@ module.exports = (db) => {
   };
 
   const loginUser = (req, res) => {
-
-     ////////////////////////
-     // db.account.checkUser(req.cookies.userId, (error, queryResult, queryResultData) => {
-     // if (error) {
-     //     console.log('ERROR AUTHENTICATING USER: ', error);
-     //     res.sendStatus(500);
-     // } else {
-     //
-     //         let userInfo = {
-     //           user: queryResult.name,
-     //           data: queryResultData,
-     //           cookie: req.cookies['wrongLogin']
-     //         }
-     //     }
-     //
-     //
-     //    res.render('./web/AccountLogin', {obj: userInfo});
-     ////////////////////////
      res.render('./web/AccountLogin', {cookie: req.cookies['wrongLogin']});
   };
 

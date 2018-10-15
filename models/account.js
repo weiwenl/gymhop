@@ -7,7 +7,7 @@ module.exports = (dbPool) => {
 //                             Models (Access database) logic
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
-const checkUser = (input, id, callback) => {
+const checkUser = (input, callback) => {
       const queryText = "SELECT * FROM users WHERE name='" + input.name + "';";
 
       dbPool.query(queryText, (error, queryResult) => {
@@ -15,22 +15,9 @@ const checkUser = (input, id, callback) => {
         if (error){
             console.log("ERROR QUERYING DB: ", error);
         }
-        else{
-          const queryString = "SELECT * FROM entrypasses WHERE user_id = $1";
-          const values = [id];
 
-          dbPool.query(queryString, values, (error, queryResultData) => {
-            // console.log("OR THIS?", queryResult.rows);
-            // console.log("PROBLEM?", queryResultData.rows);
-              if (error){
-                console.error("ERROR GETTING SHOW DATA", error);
-              } else{
-                callback(null, queryResult.rows[0], queryResultData.rows);
-              }
-
-          });
-        }
         //const sqlQueryResultUser = queryResult.rows[0];
+        callback(null, queryResult.rows[0]);
       });
   }
 
@@ -77,4 +64,4 @@ const checkUser = (input, id, callback) => {
       newPassword,
       checkUser
     };
-  };
+}

@@ -19,6 +19,8 @@ module.exports = (app, db) => {
 
   // Renders account create
   app.get('/account/new', web.accountNew);
+  // GET THE USER INTO HIS PAGE
+  //app.get('/user/home', );
   // Check password and renders page accordingly
   app.post('/account/login', account.checkUser);
   // Renders account login
