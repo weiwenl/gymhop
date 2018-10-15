@@ -4,9 +4,9 @@ var DefaultLayout = require('../layout/Default');
 class UserAddData extends React.Component {
   render() {
     return (
-      <DefaultLayout title="Add more passes">
-          <div className="AddForm-page">
-            <form method="POST" action="/user">
+      <DefaultLayout title="Gym check-in">
+          <div className="removeForm-page">
+            <form method="POST" action="">
             <h3>Gym Name</h3>
                 <select name="gym">
                     <option value="BM">Boulder Movement</option>
@@ -25,10 +25,8 @@ class UserAddData extends React.Component {
                     <option value="RS">The Rock School</option>
                     <option value="UB">Upside Boulders</option>
                 </select>
-            <h3>Number of Passes</h3> <input name="quantity" type="text" pattern="\d*" maxLength="2" />
-            <h3>Expiry Date</h3> <input  name="expiry" type="date" />
 
-            <input type="submit" value="Add Passes" />
+            <input type="submit" value="Check In" />
             </form>
           <footer>
 

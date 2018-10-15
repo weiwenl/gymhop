@@ -7,10 +7,6 @@ module.exports = (db) => {
   //                             Controller logic
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
-  // const userHome = (req, res) => {
-  //   res.render('./user/UserAccount');
-  //   // res.render('./user/UserAccount', {user: queryResult.name});
-  // }
   const getData = (req, res) => {
     res.render('./user/UserAddData');
   };
@@ -30,17 +26,33 @@ module.exports = (db) => {
   };
 
   const userHome = (req, res) => {
-
-
     res.render('./user/UserAccount', {user: req.cookies['name']});
-}
+  }
 
+  const userCheckIn = (req, res) => {
+    res.render('/user/userCheckIn');
+  }
+
+  // const showData = (req, res) => {
+  //   let id = req.cookies.userId;
+  //   db.user.showData(id, (error, queryResult) => {
+  //     console.log("THIS", queryResult);
+  //     if(error){
+  //       console.log('ERROR ADDING PASSES DATA: ', error);
+  //       res.sendStatus(500);
+  //     }
+  //     else{
+  //       res.render('user/UserAccount', {info: queryResult});
+  //     }
+  //   });
+  // }
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   //                      Export controller functions
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   return {
+    //showData,
     userHome,
     getData,
     addData

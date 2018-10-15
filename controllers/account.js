@@ -36,7 +36,8 @@ module.exports = (db) => {
   };
 
   const checkUser = (req, res) => {
-        db.account.checkUser(req.body, (error, queryResult) => {
+
+        db.account.checkUser(req.body, req.cookies.userId, (error, queryResult, queryResultData) => {
         if (error) {
             console.log('ERROR AUTHENTICATING USER: ', error);
             res.sendStatus(500);
@@ -48,8 +49,15 @@ module.exports = (db) => {
                 res.clearCookie('wrongLogin');
                 res.cookie('name', queryResult.name);
                 res.cookie('userId', queryResult.id);
-                //res.redirect('./account/user', {user: queryResult.name});
-                res.render('./user/UserAccount', {user: queryResult.name});
+
+                let userInfo = {
+                  user: queryResult.name,
+                  data: queryResultData
+                }
+
+                //res.render('./user/UserAccount');
+                res.render('./user/UserAccount', {obj: userInfo});
+                //console.log("queryResult: ", queryResultData[0].gym_name);
             }
 
             else {
@@ -82,6 +90,24 @@ module.exports = (db) => {
   };
 
   const loginUser = (req, res) => {
+
+     ////////////////////////
+     // db.account.checkUser(req.cookies.userId, (error, queryResult, queryResultData) => {
+     // if (error) {
+     //     console.log('ERROR AUTHENTICATING USER: ', error);
+     //     res.sendStatus(500);
+     // } else {
+     //
+     //         let userInfo = {
+     //           user: queryResult.name,
+     //           data: queryResultData,
+     //           cookie: req.cookies['wrongLogin']
+     //         }
+     //     }
+     //
+     //
+     //    res.render('./web/AccountLogin', {obj: userInfo});
+     ////////////////////////
      res.render('./web/AccountLogin', {cookie: req.cookies['wrongLogin']});
   };
 
