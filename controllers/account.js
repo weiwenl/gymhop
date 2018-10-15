@@ -11,14 +11,14 @@ module.exports = (db) => {
   const newPassword = (req, res) => {
     let name = req.cookies['name'];
     console.log(name);
-    db.user.newPassword(req.body, name, (error, queryResult) => {
+    db.account.newPassword(req.body, name, (error, queryResult) => {
         if (error) {
           console.error('ERROR CHANGING OLD PASSWORD: ', error);
           res.sendStatus(500);
         }
-
         res.clearCookie('wrongLogin');
-        res.clearCookie('name');
+        //res.cookies('name');
+        res.clearCookie('name', name);
         res.redirect('/account/login');
     });
   };
@@ -64,7 +64,7 @@ module.exports = (db) => {
 
   const createUser = (req,res) => {
     // use user model method `create` to create new user entry in db
-      db.user.createUser(req.body, (error, queryResult) => {
+      db.account.createUser(req.body, (error, queryResult) => {
 
         if (error) {
           console.error('ERROR CREATING USER: ', error);
@@ -72,8 +72,6 @@ module.exports = (db) => {
         }
 
         if (queryResult === undefined) {
-            res.clearCookie('userTaken');
-
             res.redirect('/account/login');
         } else {
             res.cookie('userTaken', true);

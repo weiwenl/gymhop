@@ -11,7 +11,7 @@ class UserNew extends React.Component {
       <DefaultLayout title="Creating an Account">
           <div className="UserNew-page">
               <form method="POST" action="/account">
-              <h1>Make new Account</h1>
+              <h1>Sign Up</h1>
               <div>
                 {userTaken}
                 <h3>Name</h3> <input name="name" type="text" />
@@ -20,10 +20,10 @@ class UserNew extends React.Component {
                 <h3>Password</h3> <input name="password" type="text" />
               </div>
               <input type="submit" value="Sign Up" />
+              <h4>By tapping Sign up, you agree to our terms of service and privacy policy.</h4>
             </form>
           <footer>
-              {/* <h3>Designed by climbers, made for climbers</h3>
-              <h3>Terms etc ...</h3> */}
+              
           </footer>
           </div>
        </DefaultLayout>

@@ -34,8 +34,7 @@ class UserAddData extends React.Component {
             <input type="submit" value="Add Passes" />
             </form>
           <footer>
-              {/* <h3>Designed by climbers, made for climbers</h3>
-              <h3>Terms etc ...</h3> */}
+            
           </footer>
           </div>
        </DefaultLayout>

@@ -18,22 +18,21 @@ module.exports = (db) => {
   const addData = (req, res) => {
     let id = req.cookies['userId'];
 
-    db.account.addData(req.body, id, (error, queryResult) => {
+
+    db.user.addData(req.body, id, (error, queryResult) => {
       if(error){
         console.log('ERROR ADDING PASSES DATA: ', error);
         res.sendStatus(500);
       }
       //console.log("SUCCESS");
     });
-    res.redirect('/account/user');
-    //res.render('./user/UserAccount', {user: req.body.name});
+    res.redirect('/account/user' );
   };
 
   const userHome = (req, res) => {
 
 
-
-    res.render('./user/UserAccount');
+    res.render('./user/UserAccount', {user: req.cookies['name']});
 }
 
   //////////////////////////////////////////////////////////////////////////////

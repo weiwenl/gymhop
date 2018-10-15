@@ -38,7 +38,7 @@ class MainSite extends React.Component {
             </div>
           </div>
             <footer>
-                <h4>Designed by climbers, for climbers</h4>
+                {/* <h4>Designed by climbers, for climbers</h4> */}
             </footer>
           </div>
        </DefaultLayout>
