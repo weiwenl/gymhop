@@ -3,7 +3,7 @@ var DefaultLayout = require('../layout/Default');
 
 class UserAccount extends React.Component {
   render() {
-
+    
     let userInfo = this.props.obj.data.map((info) => {
              return (
 
@@ -49,6 +49,7 @@ class UserAccount extends React.Component {
                   {userInfo}
             <div>
                 <a href="/user/add">Add Passes</a>
+                <a href="/user/checkin">Check into gym</a>
             </div>
 
           <footer>

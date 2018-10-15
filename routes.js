@@ -3,10 +3,9 @@ module.exports = (app, db) => {
   const user = require('./controllers/user')(db, web);
   const account = require('./controllers/account')(db, web, user);
 
-
-  // app.get('/user/checkin', user.userCheckIn);
-  // app.post('/user/checkin', user.userShow);
-  //---app.post('/user/show', user.showData);
+  // Renders check In into gym page
+  app.get('/user/checkin', user.userCheckIn);
+  app.post('/user/checkin', user.subtractPass);
   // Renders add passes page
   app.get('/user/add', user.getData);
   // Redirect user to homepage
@@ -19,8 +18,6 @@ module.exports = (app, db) => {
 
   // Renders account create
   app.get('/account/new', web.accountNew);
-  // GET THE USER INTO HIS PAGE
-  //app.get('/user/home', );
   // Check password and renders page accordingly
   app.post('/account/login', account.checkUser);
   // Renders account login

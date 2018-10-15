@@ -44,7 +44,22 @@ module.exports = (db) => {
 }
 
   const userCheckIn = (req, res) => {
-    res.render('/user/userCheckIn');
+    res.render('./user/userCheckIn');
+  }
+
+  const subtractPass = (req, res) => {
+    ////
+    db.user.subtractPass(req.body.gym, req.cookies.userId, (error, queryResult) => {
+        if (error) {
+            console.log('ERROR AUTHENTICATING USER: ', error);
+            res.sendStatus(500);
+        } else {
+          res.redirect('/account/user');
+        }
+
+
+    });
+    ////
   }
 
 
@@ -54,6 +69,8 @@ module.exports = (db) => {
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   return {
+    subtractPass,
+    userCheckIn,
     userHome,
     getData,
     addData

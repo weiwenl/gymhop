@@ -31,9 +31,23 @@ module.exports = (dbPool) => {
       });
   }
 
-  // const removeData = (input, id, gym, callback) => {
-  //   const queryText =
-  // }
+  const subtractPass = (gym, id, callback) => {
+      const queryText = "UPDATE entrypasses SET quantity = (quantity - 1) WHERE gym_name = $1 AND user_id = $2 AND quantity > 0;"
+
+      const values = [gym, id];
+
+      dbPool.query(queryText, values, (error, queryResult) => {
+        
+        if (error){
+            console.error("ERROR SUBTRACTING PASSES", error);
+        } else{
+
+            callback(null, queryResult.rows);
+        }
+
+      });
+
+  }
 
 
 
@@ -43,6 +57,7 @@ module.exports = (dbPool) => {
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   return {
+    subtractPass,
     addData,
     userHome
     };

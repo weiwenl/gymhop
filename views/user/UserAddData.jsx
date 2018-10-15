@@ -14,16 +14,16 @@ class UserAddData extends React.Component {
                     <option value="Boulder +">Boulder +</option>
                     <option value="Boys Town Climbing">Boys Town Climbing Wall</option>
                     <option value="Climb Central">Climb Central</option>
-                    <option value="CL">Climbers Laboratory</option>
-                    <option value="FB">Fit · Bloc</option>
-                    <option value="GU">GroundUp Climbing</option>
-                    <option value="KC">Kinetics Climbing</option>
-                    <option value="OS">Onsight Climbing</option>
-                    <option value="OC">Oyeyo Climbing</option>
-                    <option value="YS">Safra Yishun Climbing</option>
-                    <option value="TC">The Cliff</option>
-                    <option value="RS">The Rock School</option>
-                    <option value="UB">Upside Boulders</option>
+                    <option value="Climbers Laboratory">Climbers Laboratory</option>
+                    <option value="Fit Bloc">Fit · Bloc</option>
+                    <option value="GroundUp Climbing">GroundUp Climbing</option>
+                    <option value="Kinetics Climbing">Kinetics Climbing</option>
+                    <option value="Onsight Climbing">Onsight Climbing</option>
+                    <option value="Oyeyo Climbing">Oyeyo Climbing</option>
+                    <option value="Safra Yishun Climbing">Safra Yishun Climbing</option>
+                    <option value="The Cliff">The Cliff</option>
+                    <option value="The Rock School">The Rock School</option>
+                    <option value="Upside Boulders">Upside Boulders</option>
                 </select>
             <h3>Number of Passes</h3> <input name="quantity" type="text" pattern="\d*" maxLength="2" />
             <h3>Expiry Date</h3> <input  name="expiry" type="date" />
