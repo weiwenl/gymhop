@@ -26,7 +26,7 @@ module.exports = (db) => {
 
   const resetPassword = (req, res) => {
     res.cookie('wrongLogin', false);
-    res.render('./web/AccountReset', {cookie: req.cookies['name']});
+    res.render('./web/accountreset', {cookie: req.cookies['name']});
   };
 
   const logOut = (req, res) => {
@@ -81,7 +81,7 @@ module.exports = (db) => {
   };
 
   const loginUser = (req, res) => {
-     res.render('./web/AccountLogin', {cookie: req.cookies['wrongLogin']});
+     res.render('./web/accountlogin', {cookie: req.cookies['wrongLogin']});
   };
 
   return {

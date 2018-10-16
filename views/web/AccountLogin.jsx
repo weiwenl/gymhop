@@ -1,7 +1,7 @@
 var React = require("react");
 var DefaultLayout = require('../layout/Default');
 
-class UserLogin extends React.Component {
+class accountlogin extends React.Component {
   render() {
     let wrongLogin;
     let resetPassword
@@ -12,7 +12,7 @@ class UserLogin extends React.Component {
     }
     return (
       <DefaultLayout title="LogIn">
-          <div className="UserLogin-page">
+          <div className="accountlogin-page">
               <form method="POST" action="/account/login">
               <h1>Log In</h1>
               <div>
@@ -34,4 +34,4 @@ class UserLogin extends React.Component {
   }
 }
 
-module.exports = UserLogin;
+module.exports = accountlogin;

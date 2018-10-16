@@ -1,7 +1,7 @@
 var React = require("react");
 var DefaultLayout = require('../layout/Default');
 
-class UserCheckIn extends React.Component {
+class usercheckin extends React.Component {
   render() {
     return (
       <DefaultLayout title="Gym check-in">
@@ -37,4 +37,4 @@ class UserCheckIn extends React.Component {
   }
 }
 
-module.exports = UserCheckIn;
+module.exports = usercheckin;

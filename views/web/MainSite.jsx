@@ -1,7 +1,7 @@
 var React = require("react");
 var DefaultLayout = require('../layout/Default');
 
-class MainSite extends React.Component {
+class mainsite extends React.Component {
   render() {
     return (
       <DefaultLayout title="Mainpage">
@@ -42,4 +42,4 @@ class MainSite extends React.Component {
   }
 }
 
-module.exports = MainSite;
+module.exports = mainsite;

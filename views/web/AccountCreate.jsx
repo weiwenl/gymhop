@@ -1,7 +1,7 @@
 var React = require("react");
 var DefaultLayout = require('../layout/Default');
 
-class UserNew extends React.Component {
+class accountcreate extends React.Component {
   render() {
     let userTaken;
     if(this.props.cookie === 'true') {
@@ -9,7 +9,7 @@ class UserNew extends React.Component {
     }
     return (
       <DefaultLayout title="Creating an Account">
-          <div className="UserNew-page">
+          <div className="accountcreate-page">
               <form method="POST" action="/account">
               <h1>Sign Up</h1>
               <div>
@@ -23,7 +23,7 @@ class UserNew extends React.Component {
               <h4>By tapping Sign up, you agree to our terms of service and privacy policy.</h4>
             </form>
           <footer>
-              
+
           </footer>
           </div>
        </DefaultLayout>
@@ -31,4 +31,4 @@ class UserNew extends React.Component {
   }
 }
 
-module.exports = UserNew;
+module.exports = accountcreate;

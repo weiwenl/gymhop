@@ -9,7 +9,7 @@ module.exports = (db) => {
   /////////////////////////////////////////////////////////////////////////////
 
   const getData = (req, res) => {
-    res.render('./user/UserAddData');
+    res.render('./user/useradddata');
   };
 
   const addData = (req, res) => {
@@ -45,7 +45,7 @@ module.exports = (db) => {
                       user: req.cookies['name'],
                       data: queryResult
               }
-              res.render('./user/UserAccount', {obj: userInfo});
+              res.render('./user/useraccount', {obj: userInfo});
             }
 
           });
@@ -56,7 +56,7 @@ module.exports = (db) => {
 }
 
   const userCheckIn = (req, res) => {
-    res.render('./user/userCheckIn');
+    res.render('./user/usercheckin');
   }
 
   const subtractPass = (req, res) => {

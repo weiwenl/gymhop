@@ -2,7 +2,7 @@ var React = require("react");
 var DefaultLayout = require('../layout/Default');
 
 
-class UserAccount extends React.Component {
+class useraccount extends React.Component {
   render() {
 
     let userInfo = this.props.obj.data.map((info) => {
@@ -24,7 +24,7 @@ class UserAccount extends React.Component {
     return (
       //Welcome user's name
       <DefaultLayout title= {this.props.obj.user}>
-          <div className="UserAccount-page">
+          <div className="useraccount-page">
             <a href="#">Edit Profile</a>
             <a href="/account/logout">Logout</a>
             <div>
@@ -58,4 +58,4 @@ class UserAccount extends React.Component {
   }
 }
 
-module.exports = UserAccount;
+module.exports = useraccount;

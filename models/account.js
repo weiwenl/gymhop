@@ -8,9 +8,9 @@ module.exports = (dbPool) => {
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 const checkUser = (input, callback) => {
-      const queryText = "SELECT * FROM users WHERE name='" + input.name + "';";
-
-      dbPool.query(queryText, (error, queryResult) => {
+      const queryText = "SELECT * FROM users WHERE name= $1;";
+      values = [input.name];
+      dbPool.query(queryText, values, (error, queryResult) => {
 
         if (error){
             console.log("ERROR QUERYING DB: ", error);
@@ -24,8 +24,9 @@ const checkUser = (input, callback) => {
 
 
   const createUser = (user, callback) => {
-        const queryText = "SELECT * FROM users WHERE name='" + user.name + "';";
-        dbPool.query(queryText, (error, queryResult) => {
+        const queryText = "SELECT * FROM users WHERE name= $1;";
+        values = [user.name];
+        dbPool.query(queryText, values, (error, queryResult) => {
             if (error) {
                 console.log('ERROR QUERYING DB: ', error);
             }

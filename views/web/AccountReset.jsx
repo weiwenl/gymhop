@@ -1,12 +1,12 @@
 var React = require("react");
 var DefaultLayout = require('../layout/Default');
 
-class UserReset extends React.Component {
+class accountreset extends React.Component {
   render() {
 
     return (
       <DefaultLayout title="Reset my Password">
-          <div className="UserReset-page">
+          <div className="accountreset-page">
               <form method="POST" action="/account/login">
               <h1>Please reset your password, { this.props.cookie }</h1>
               <div>
@@ -23,4 +23,4 @@ class UserReset extends React.Component {
   }
 }
 
-module.exports = UserReset;
+module.exports = accountreset;

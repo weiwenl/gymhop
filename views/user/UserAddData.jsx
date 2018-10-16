@@ -1,7 +1,7 @@
 var React = require("react");
 var DefaultLayout = require('../layout/Default');
 
-class UserAddData extends React.Component {
+class useradddata extends React.Component {
   render() {
     return (
       <DefaultLayout title="Add more passes">
@@ -39,4 +39,4 @@ class UserAddData extends React.Component {
   }
 }
 
-module.exports = UserAddData;
+module.exports = useradddata;

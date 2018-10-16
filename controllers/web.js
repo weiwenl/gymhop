@@ -6,11 +6,11 @@ module.exports = (db) => {
   //////////////////////////////////////////////////////////////////////////////
 
   const mainpage = (req, res) => {
-     res.render('./web/mainSite');
+     res.render('./web/mainsite');
   };
 
   const accountNew = (req, res) => {
-     res.render('./web/AccountCreate', {cookie: req.cookies['userTaken']});
+     res.render('./web/accountcreate', {cookie: req.cookies['userTaken']});
   };
 
   //////////////////////////////////////////////////////////////////////////////
