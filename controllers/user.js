@@ -6,14 +6,14 @@ module.exports = (db) => {
   //////////////////////////////////////////////////////////////////////////////
   //                             Controller logic
   //////////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////
+
   const getData = (req, res) => {
     res.render('./user/UserAddData');
   };
 
   const addData = (req, res) => {
     let id = req.cookies['userId'];
-
 
     db.user.addData(req.body, id, (error, queryResult) => {
       if(error){
@@ -31,6 +31,11 @@ module.exports = (db) => {
             console.log('ERROR GETTING DATA FROM USER: ', error);
             res.sendStatus(500);
         } else {
+          // db.user.sumPasses(req.cookies.userId, (error, querySum) => {
+          //   if (error) {
+          //     console.log('ERROR DELETING PASS: ', error);
+          //     res.sendStatus(500);
+          //   } else {
           db.user.deletePass(req.cookies.userId, (error, queryResult2) => {
             if (error) {
               console.log('ERROR DELETING PASS: ', error);
@@ -44,11 +49,9 @@ module.exports = (db) => {
             }
 
           });
-
-
         }
-
-
+    //   });
+    // }
   });
 }
 

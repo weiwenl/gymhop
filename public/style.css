@@ -1,23 +1,45 @@
-/* *{
+*{
   padding: 0;
   margin: 0;
   border: 0;
 }
-
-[class*="col-"] {
-    text-align: center;
-
+html{
+  background-color: #ffcf76;
 }
 
-form {
+.topbar{
+  background-color: #ffc14e;
+  color: #fff;
+  height: 10vh;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+.topbar h1{
+  font-size: 8vh;
+}
+.middlebar {
+  width: 80vw;
   font-size: 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+.bottombar {
+  width: 80vw;
+  font-size: 20px;
+  border: 2px solid #000;
+  margin: 5vh auto;
+  text-align: center;
 }
 
-.main-page div{
-  height: 5vh;
+.Register {
+  margin: 1vh 1vw;
+  padding: 2vh 2vw;
+}
 
-  background-color:;
-} */
+.login {
+  margin: 1vh 1vw;
+  padding: 2vh 2vw;
+}
 
 th{
   width: 20vw;

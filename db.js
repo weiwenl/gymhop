@@ -1,16 +1,21 @@
 const pg = require('pg');
 const user = require('./models/user');
 const account = require('./models/account');
+
+//require the url library
+//this comes with node, so no need to yarn add
 const url = require('url');
 
-var configs;
-
+//check to see if we have this heroku environment variable
 if( process.env.DATABASE_URL ){
+
+  //we need to take apart the url so we can set the appropriate configs
 
   const params = url.parse(process.env.DATABASE_URL);
   const auth = params.auth.split(':');
 
-  configs = {
+  //make the configs object
+  var configs = {
     user: auth[0],
     password: auth[1],
     host: params.hostname,
@@ -20,7 +25,9 @@ if( process.env.DATABASE_URL ){
   };
 
 }else{
-  configs = {
+
+  //otherwise we are on the local network
+  var configs = {
     user: 'weiwenlee',
     host: '127.0.0.1',
     database: 'gymhophop',

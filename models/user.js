@@ -8,8 +8,21 @@ module.exports = (dbPool) => {
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
+  const sumPasses = (id, callback) => {
+
+    const queryText = "SELECT SUM(quantity) FROM entrypasses WHERE user_id = $1;"
+    const values = [id];
+    dbPool.query(queryText, values, (error, queryResult) => {
+      if (error) {
+        console.error("ERROR GETTING USER DATA: ", error);
+      } else{
+        callback(null, queryResult.rows);
+      }
+    });
+  }
 
   const addData = (input, id, callback) => {
+
     const queryText = "INSERT INTO entrypasses (gym_name, quantity, expiry_date, user_id) VALUES ($1, $2, $3, $4);"
     const values = [input.gym, input.quantity, input.expiry, id];
     dbPool.query(queryText, values, (error, queryResult) => {
@@ -26,14 +39,6 @@ module.exports = (dbPool) => {
                 console.error("ERROR GETTING USER DATA: ", error);
           } else{
             callback(null, queryResult.rows);
-
-              // const queryText = "DELETE FROM entrypasses WHERE quantity = 0;"
-              // dbPool.query(queryText, (error, queryResult) => {
-              //   if (error){
-              //     console.error("ERROR DELETING DATA: ", error);
-              //   }
-              //
-              // });
             }
       });
   }
@@ -75,6 +80,7 @@ const deletePass = (id, callback) => {
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   return {
+    sumPasses,
     deletePass,
     subtractPass,
     addData,

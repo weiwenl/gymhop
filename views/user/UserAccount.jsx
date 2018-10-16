@@ -1,6 +1,7 @@
 var React = require("react");
 var DefaultLayout = require('../layout/Default');
 
+
 class UserAccount extends React.Component {
   render() {
 
@@ -22,15 +23,14 @@ class UserAccount extends React.Component {
 
     return (
       //Welcome user's name
-      <DefaultLayout title="Welcome + { this.props.user }">
+      <DefaultLayout title= {this.props.obj.user}>
           <div className="UserAccount-page">
             <a href="#">Edit Profile</a>
             <a href="/account/logout">Logout</a>
             <div>
-              <h3>Total Passes</h3>
-              <h3>Total Gym</h3>
+              <h3>Total Passes</h3><h3>{this.props.obj.sum}</h3>
             </div>
-            <img src="#" alt="Display Picture"></img>
+            <img src="/dp.jpg"></img>
             <h3>{ this.props.obj.user }</h3>
 
             <table>
@@ -41,7 +41,7 @@ class UserAccount extends React.Component {
                 </tr>
 
                   {userInfo}
-        
+
             </table>
 
             <div>
