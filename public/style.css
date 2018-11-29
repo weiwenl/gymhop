@@ -54,8 +54,26 @@ div.newaccount{
     position: relative;
 }
 .newaccount div.card{
+  width: 40vw;
   background: rgba(204, 204, 204, 0.95);
   /* opacity: 0.95; */
+  position: absolute;
+  top: 20%;
+}
+
+/* Login Page */
+div.loginaccount{
+  background-image: url("../login.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.loginaccount div.card{
+  width: 40vw;
+  /* background: rgba(204, 204, 204, 0.95); */
+  opacity: 0.95;
   position: absolute;
   top: 20%;
 }
