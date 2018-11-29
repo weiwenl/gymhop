@@ -13,6 +13,15 @@ class accountlogin extends React.Component {
     return (
       <DefaultLayout title="Already a member">
           <div class="loginaccount">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="">
+              <div class="container">
+                <span class="navbar-brand"><a class="text-white" href="/">GYM hop</a></span>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  Menu
+                </button>
+
+              </div>
+            </nav>
             <div class="container">
 
               <div class="d-flex justify-content-center align-items-end">
@@ -54,23 +63,6 @@ class accountlogin extends React.Component {
             </div>
           </div>
         </div>
-          {/* <div className="accountlogin-page">
-              <form method="POST" action="/account/login">
-              <h1>Log In</h1>
-              <div>
-                {wrongLogin}
-                <h3>Name</h3> <input name="name" type="text" />
-              </div>
-              <div>
-                <h3>Password</h3> <input name="password" type="text" />
-              </div>
-              <input type="submit" value="Log In" />
-              {resetPassword}
-            </form>
-          <footer>
-
-          </footer>
-          </div> */}
        </DefaultLayout>
     );
   }

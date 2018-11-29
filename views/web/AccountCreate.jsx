@@ -10,6 +10,15 @@ class accountcreate extends React.Component {
     return (
       <DefaultLayout title="New User">
         <div class="newaccount">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="">
+            <div class="container">
+              <span class="navbar-brand"><a class="text-white" href="/">GYM hop</a></span>
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+              </button>
+
+            </div>
+          </nav>
           <div class="container">
 
             <div class="d-flex justify-content-center align-items-end">
