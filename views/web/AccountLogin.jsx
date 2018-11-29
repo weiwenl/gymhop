@@ -12,49 +12,49 @@ class accountlogin extends React.Component {
     }
     return (
       <DefaultLayout title="Already a member">
-          <div class="loginaccount">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="">
-              <div class="container">
-                <span class="navbar-brand"><a class="text-white" href="/">GYM hop</a></span>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <div className="loginaccount">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="">
+              <div className="container">
+                <span className="navbar-brand"><a className="text-white" href="/">GYM hop</a></span>
+                <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                   Menu
                 </button>
 
               </div>
             </nav>
-            <div class="container">
+            <div className="container">
 
-              <div class="d-flex justify-content-center align-items-end">
-                <div class="card">
-                  <div class="card-header">
+              <div className="d-flex justify-content-center align-items-end">
+                <div className="card">
+                  <div className="card-header">
                     <h3>Sign In</h3>
                   </div>
 
-                  <div class="card-body">
+                  <div className="card-body">
                     <form method="POST" action="/account/login">
-                    <div class="input-group form-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <div className="input-group form-group">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text"><i className="fas fa-user"></i></span>
                       </div>
-                      <input class="form-control" type="text" name="name" placeholder="username"/>
+                      <input className="form-control" type="text" name="name" placeholder="username"/>
                     </div>
 
-                    <div class="input-group form-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    <div className="input-group form-group">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text"><i className="fas fa-key"></i></span>
                       </div>
-                      <input class="form-control" type="password" name="password"   placeholder="password"/>
+                      <input className="form-control" type="password" name="password"   placeholder="password"/>
                     </div>
 
-                    <div class="form-group">
-                      <input type="submit" value="Log In" class="btn float-right"/>
-                      <div class="float-left text-danger">{wrongLogin}</div>
+                    <div className="form-group">
+                      <input type="submit" value="Log In" className="btn float-right"/>
+                      <div className="float-left text-danger">{wrongLogin}</div>
                     </div>
                   </form>
                 </div>
 
-                <div class="card-footer">
-                  <div class="d-flex justify-content-center links">
+                <div className="card-footer">
+                  <div className="d-flex justify-content-center links">
                     <a className="btn btn-light" href="/account/new" role="button">New to GYM hop? Sign-up</a>
                   </div>
 

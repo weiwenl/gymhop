@@ -5,39 +5,39 @@ class index extends React.Component {
   render() {
     return (
       <DefaultLayout title="Welcome to GYMhop">
-        <div class="homepage">
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="">
-            <div class="container">
-              <span class="navbar-brand"><a class="text-white" href="/">GYM hop</a></span>
-              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <div className="homepage">
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="">
+            <div className="container">
+              <span className="navbar-brand"><a className="text-white" href="/">GYM hop</a></span>
+              <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
               </button>
 
-              <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
+              <div className="collapse navbar-collapse">
+                <ul className="navbar-nav ml-auto">
                   <li>
-                    <a class="nav-link" href="#upcomingevents">Upcoming Events</a>
+                    <a className="nav-link" href="#upcomingevents">Upcoming Events</a>
                   </li>
                   <li>
-                    <a class="nav-link" href="#gymsnearme">Gyms Near Me</a>
+                    <a className="nav-link" href="#gymsnearme">Gyms Near Me</a>
                   </li>
                   <li>
-                    <a class="nav-link" href="/account/login">Log In</a>
+                    <a className="nav-link" href="/account/login">Log In</a>
                   </li>
                 </ul>
               </div>
             </div>
           </nav>
 
-          <img src="home.jpg" class="img-fluid homepage-image" alt="Responsive image" />
+          <img src="home.jpg" className="img-fluid homepage-image" alt="Responsive image" />
 
-          <div class="overlay container">
-            <div class="row">
-              <div class="col-lg-7">
-                <div class="mx-auto">
-                  <a class="btn btn-success register-btn" href="account/new" role="button">Register now for Free!</a>
-                    <div class="home-caption mt-2">
-                      <h1 class="mb-5">Losing track on the number of climbing multi-passes?</h1>
+          <div className="overlay container">
+            <div className="row">
+              <div className="col-lg-7">
+                <div className="mx-auto">
+                  <a className="btn btn-success register-btn" href="account/new" role="button">Register now for Free!</a>
+                    <div className="home-caption mt-2">
+                      <h1 className="mb-5">Losing track on the number of climbing multi-passes?</h1>
                     </div>
                     <p>Operating without structures, let the application do the recording <br/>and you focus on climbing.</p>
                 </div>
