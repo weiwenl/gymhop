@@ -2,9 +2,8 @@
 *{
   user-select: none;
 }
-body{
-  /* background-color: #ffcf76; */
-  background-image: url('home2.jpeg');
+html, body{
+  /* background-color: rgb(95,95,95); */
 }
 
 
@@ -13,6 +12,7 @@ body{
 .bg-dark{
   opacity: 0.9;
 }
+
 .navbar-brand{
   font-family: 'Archivo Black', sans-serif;
   font-size: 2em;
@@ -37,8 +37,28 @@ body{
   font-size: 1.2em;
 }
 
+footer{
+  background-color: rgba(0,0,0,0.8);
+  height: 12vh;
+  color: white;
+  text-align: center;
+}
 
-
+/* Register Page */
+div.newaccount{
+    background-image: url("../register.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+.newaccount div.card{
+  background: rgba(204, 204, 204, 0.95);
+  /* opacity: 0.95; */
+  position: absolute;
+  top: 20%;
+}
 
 /* Media Queries */
 @media only screen and (max-width: 600px) {
