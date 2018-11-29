@@ -1,51 +1,48 @@
+/* General Styling */
 *{
-  padding: 0;
-  margin: 0;
-  border: 0;
+  user-select: none;
 }
-html{
-  background-color: #ffcf76;
+body{
+  /* background-color: #ffcf76; */
+  background-image: url('home2.jpeg');
 }
 
-.topbar{
-  background-color: #ffc14e;
+
+
+/* Index Page */
+.bg-dark{
+  opacity: 0.9;
+}
+.navbar-brand{
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 2em;
+}
+
+.homepage-image{
+  position: relative;
+}
+
+.overlay{
+  position: absolute;
+  top: 50vh;
+  left: 5vw;
   color: #fff;
-  height: 10vh;
-  text-align: center;
-  margin-bottom: 5vh;
-}
-.topbar h1{
-  font-size: 8vh;
-}
-.middlebar {
-  width: 80vw;
-  font-size: 20px;
-  margin: 0 auto;
-  text-align: center;
-}
-.bottombar {
-  width: 80vw;
-  font-size: 20px;
-  border: 2px solid #000;
-  margin: 5vh auto;
-  text-align: center;
 }
 
-.Register {
-  margin: 1vh 1vw;
-  padding: 2vh 2vw;
+.home-caption{
+  background-color: rgba(0,0,0,0.15);
 }
 
-.login {
-  margin: 1vh 1vw;
-  padding: 2vh 2vw;
+.register-btn{
+  font-size: 1.2em;
 }
 
-th{
-  width: 20vw;
-  border: solid 2px #000;
-  padding: 2vh;
-}
-tr{
-  text-align: center;
+
+
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
 }
