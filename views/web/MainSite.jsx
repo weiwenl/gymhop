@@ -1,5 +1,5 @@
 var React = require("react");
-var DefaultLayout = require('../layout/Default');
+var DefaultLayout = require('../layout/default');
 
 class mainsite extends React.Component {
   render() {

@@ -1,5 +1,5 @@
 var React = require("react");
-var DefaultLayout = require('../layout/Default');
+var DefaultLayout = require('../layout/default');
 
 class accountreset extends React.Component {
   render() {
@@ -15,7 +15,7 @@ class accountreset extends React.Component {
               <input type="submit" value="Confirm" />
             </form>
           <footer>
-              
+
           </footer>
           </div>
        </DefaultLayout>
