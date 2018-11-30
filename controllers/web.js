@@ -10,7 +10,7 @@ module.exports = (db) => {
   };
 
   const accountNew = (req, res) => {
-     res.render('./web/accountcreate.jsx', {cookie: req.cookies['userTaken']});
+     res.render('./web/accountcreate', {cookie: req.cookies['userTaken']});
   };
 
   //////////////////////////////////////////////////////////////////////////////
