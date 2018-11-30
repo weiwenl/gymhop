@@ -6,7 +6,7 @@ module.exports = (db) => {
   //////////////////////////////////////////////////////////////////////////////
 
   const mainpage = (req, res) => {
-     res.render('./web/mainsite');
+     res.render('./web/index');
   };
 
   const accountNew = (req, res) => {
