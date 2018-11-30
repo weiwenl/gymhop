@@ -58,6 +58,7 @@ div.newaccount{
     width: 100%;
     position: relative;
 }
+
 .newaccount div.card{
   width: 40vw;
   background: rgba(204, 204, 204, 0.95);
@@ -75,6 +76,7 @@ div.loginaccount{
   width: 100%;
   position: relative;
 }
+
 .loginaccount div.card{
   width: 40vw;
   /* background: rgba(204, 204, 204, 0.95); */
@@ -92,6 +94,7 @@ div.useraccount{
   width: 100%;
   position: relative;
 }
+
 .useraccount div.card{
   width: 40vw;
   /* background: rgba(204, 204, 204, 0.95); */
@@ -99,21 +102,69 @@ div.useraccount{
   position: absolute;
   top: 20%;
 }
+
 .card-header{
   border: 1px solid black;
   height: 15vh;
 }
+
 .card-body{
   height: 40vh;
   overflow: scroll;
 }
+
 .avatar {
   float: left;
 }
+
 .avatar-name{
   padding: 0.6em 0 0 3em
 }
 
+/* Add passes page */
+div.userdata{
+  background-image: url("../data.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.userdata div.card{
+  width: 40vw;
+  /* background: rgba(204, 204, 204, 0.95); */
+  opacity: 0.95;
+  position: absolute;
+  top: 20%;
+}
+
+.add-btn{
+  float: right;
+}
+
+/* Checkin page */
+div.userCheckin{
+  background-image: url("../checkin.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.userCheckin div.card{
+  width: 40vw;
+  /* background: rgba(204, 204, 204, 0.95); */
+  opacity: 0.95;
+  position: absolute;
+  top: 30%;
+  height: 35vh;
+}
+
+.checkin-btn{
+  float: right;
+}
 
 /* Media Queries */
 @media only screen and (max-width: 600px) {
