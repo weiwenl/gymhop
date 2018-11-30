@@ -9,7 +9,7 @@ module.exports = (db) => {
   /////////////////////////////////////////////////////////////////////////////
 
   const getData = (req, res) => {
-    res.render('./user/useradddata');
+    res.render('./user/useradddata', {user: req.cookies['name']});
   };
 
   const addData = (req, res) => {
@@ -22,7 +22,7 @@ module.exports = (db) => {
       }
       //console.log("SUCCESS");
     });
-    res.redirect('/account/user' );
+    res.redirect('/account/user');
   };
 
   const userHome = (req, res) => {
@@ -56,7 +56,7 @@ module.exports = (db) => {
 }
 
   const userCheckIn = (req, res) => {
-    res.render('./user/usercheckin');
+    res.render('./user/usercheckin', {user: req.cookies['name']});
   }
 
   const subtractPass = (req, res) => {

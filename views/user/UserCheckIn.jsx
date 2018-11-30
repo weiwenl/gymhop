@@ -16,7 +16,7 @@ class usercheckin extends React.Component {
               <div>
                 <ul className="navbar-nav ml-auto">
                   <li>
-                    <text className="nav-link">Welcome, {this.props.username}</text>
+                    <text className="nav-link">Welcome, {this.props.user}</text>
                   </li>
                   {/* <li>
                     <a className="nav-link" href="#editprofile">Edit Profile</a>
@@ -39,7 +39,7 @@ class usercheckin extends React.Component {
 
                   <div className="card-header">
                     <img src="../boy.jpg" width="80vw" className="avatar rounded-circle"></img>
-                    <h2 className="avatar-name">{this.props.username}</h2>
+                    <h2 className="avatar-name">{this.props.user}</h2>
                   </div>
 
                   <div className="card-body">

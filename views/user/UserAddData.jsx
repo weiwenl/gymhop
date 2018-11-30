@@ -16,7 +16,7 @@ class useradddata extends React.Component {
               <div>
                 <ul className="navbar-nav ml-auto">
                   <li>
-                    <text className="nav-link">Welcome, {this.props.username}</text>
+                    <text className="nav-link">Welcome, {this.props.user}</text>
                   </li>
                   {/* <li>
                     <a className="nav-link" href="#editprofile">Edit Profile</a>
@@ -39,7 +39,7 @@ class useradddata extends React.Component {
 
                   <div className="card-header">
                     <img src="../boy.jpg" width="80vw" className="avatar rounded-circle"></img>
-                    <h2 className="avatar-name">{this.props.username}</h2>
+                    <h2 className="avatar-name">{this.props.user}</h2>
                   </div>
 
                   <div className="card-body">
@@ -65,7 +65,7 @@ class useradddata extends React.Component {
                     <h6>Number of Passes</h6> <input name="quantity" type="text" pattern="\d*" maxLength="2" />
                     <h6>Expiry Date</h6> <input  name="expiry" type="date" />
 
-                    <input class="add-btn btn btn-warning" type="submit" value="Add Passes" />
+                    <input className="add-btn btn btn-warning" type="submit" value="Add Passes" />
                     </form>
                   </div>
                 </div>
