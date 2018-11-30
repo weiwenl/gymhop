@@ -103,7 +103,7 @@ div.useraccount{
   top: 20%;
 }
 
-.card-header{
+.useraccount .card-header{
   border: 1px solid black;
   height: 15vh;
 }
@@ -131,6 +131,11 @@ div.userdata{
   position: relative;
 }
 
+.userdata .card-header{
+  border: 1px solid black;
+  height: 15vh;
+}
+
 .userdata div.card{
   width: 40vw;
   /* background: rgba(204, 204, 204, 0.95); */
@@ -151,6 +156,11 @@ div.userCheckin{
   height: 100vh;
   width: 100%;
   position: relative;
+}
+
+.userCheckin .card-header{
+  border: 1px solid black;
+  height: 15vh;
 }
 
 .userCheckin div.card{
