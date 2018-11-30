@@ -1,7 +1,7 @@
 {
   "name": "gymhop",
   "version": "1.0.0",
-  "description": "",
+  "description": "Problem statement: Climbers in Singapore often lose track on the number of gym passes they own and the expiry dates of each set of gym passes.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -26,5 +26,14 @@
     "react-dom": "^16.5.2",
     "react-router-dom": "^4.3.1",
     "sha256": "^0.2.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weiwenl/gymhop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/weiwenl/gymhop/issues"
+  },
+  "homepage": "https://github.com/weiwenl/gymhop#readme"
 }
